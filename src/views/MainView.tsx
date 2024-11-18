@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { BarChartView } from "../components/BarChartView";
+import { DataTable } from "../components/DataTable";
 import { useFilteredNEOData } from "../hooks/useFilteredNEOData";
 import { SearchComp } from "../components/SearchComp";
+import { ViewSwitcher } from "../components/ViewSwitcher.tsx";
 import { Header } from "../components/Header";
 
 export const MainView: React.FC = () => {
@@ -14,6 +16,8 @@ export const MainView: React.FC = () => {
     selectedOrbitalBody,
     setSelectedOrbitalBody,
   } = useFilteredNEOData();
+
+  const [view, setView] = useState<"chart" | "table">("chart");
 
   if (error)
     return (
@@ -33,7 +37,13 @@ export const MainView: React.FC = () => {
         setSelectedOrbitalBody={setSelectedOrbitalBody}
       />
 
-      <BarChartView data={filteredData} />
+      <ViewSwitcher view={view} setView={setView} filteredData={filteredData} />
+
+      {view === "chart" ? (
+        <BarChartView data={filteredData} />
+      ) : (
+        <DataTable data={filteredData} />
+      )}
     </div>
   );
 };

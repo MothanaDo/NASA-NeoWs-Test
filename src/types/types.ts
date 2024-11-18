@@ -25,6 +25,10 @@ export type BarChartProps = {
   data: any[];
 };
 
+export type DataTableProps = {
+  data: any[];
+};
+
 export type ViewSwitcherProps = {
   view: "chart" | "table";
   setView: (view: "chart" | "table") => void;
