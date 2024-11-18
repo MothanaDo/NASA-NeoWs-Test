@@ -14,7 +14,6 @@ export const useFetchNEOData = () => {
       try {
         const neo = await fetchNEOData();
         setData(neo);
-        console.log("neo", neo);
       } catch (err) {
         setError("Failed to fetch data");
       } finally {
