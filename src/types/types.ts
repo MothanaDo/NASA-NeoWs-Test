@@ -1,3 +1,11 @@
+export type SearchCompProps = {
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  orbitalBodies: string[];
+  selectedOrbitalBody: string;
+  setSelectedOrbitalBody: React.Dispatch<React.SetStateAction<string>>;
+};
+
 export type ButtonComponentProps = {
   text: string;
   onClick: () => void;
@@ -21,4 +29,15 @@ export type ViewSwitcherProps = {
   view: "chart" | "table";
   setView: (view: "chart" | "table") => void;
   filteredData: any[];
+};
+
+export type FilterDropdownProps = {
+  options: string[];
+  selected: string;
+  onChange: (value: string) => void;
+};
+
+export type SearchBarProps = {
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
 };

@@ -1,17 +1,12 @@
-import { BarChartView } from "./components/BarChartView";
-import { useFetchNEOData } from "./hooks/useFetchNEOData";
+import React from "react";
+import { MainView } from "./views/MainView";
 
-function App() {
-  const { data } = useFetchNEOData();
-  console.log("data", data);
-
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <BarChartView data={data} />
-      </div>
-    </>
+    <div className="container mx-auto">
+      <MainView />
+    </div>
   );
-}
+};
 
 export default App;
